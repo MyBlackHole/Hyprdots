@@ -5,7 +5,7 @@ ZSH=/usr/share/oh-my-zsh/
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # List of plugins used
-plugins=()
+plugins=(sudo zsh-256color zsh-autosuggestions zsh-syntax-highlighting git vi-mode tmux rust golang podman)
 source $ZSH/oh-my-zsh.sh
 
 # In case a command is not found, try to find the package that has it
@@ -87,3 +87,62 @@ alias mkdir='mkdir -p'
 
 #Display Pokemon
 pokemon-colorscripts --no-title -r 1,3,6
+
+export ALL_PROXY="http://127.0.0.1:1080"
+export HTTP_PROXY=$ALL_PROXY
+export HTTPS_PROXY=$ALL_PROXY
+export ALL_PROXY=$ALL_PROXY
+export http_proxy=$ALL_PROXY
+export HTTPS_PROXY=$ALL_PROXY
+export all_proxy=$ALL_PROXY
+
+# fcitx
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export SDL_IM_MODULE=fcitx
+
+# # fiddler
+# export HTTP_PROXY="http://127.0.0.1:8866"
+# export HTTPS_PROXY="http://127.0.0.1:8866"
+# export ALL_PROXY="socks5://127.0.0.1:8866"
+
+export MYHOME="/run/media/black/Data"
+export TOOLSHOME=$MYHOME/tools
+
+# yarn
+YARN_PATH=$HOME/.yarn
+YARN_CONFIG_PATH=$HOME/.config/yarn/global/node_modules
+if [ -d "$YARN_PATH" ]; then
+    export PATH=$YARN_PATH/bin::$YARN_CONFIG_PATH/.bin:$PATH
+fi
+
+# atuin
+eval "$(atuin init zsh)"
+
+
+# go
+GO_PATH=$HOME/go
+if [ -d "$GO_PATH" ]; then
+    export PATH=$GO_PATH/bin:$PATH
+
+    # # golang 
+    # export GOPROXY="https://goproxy.io,direct"
+fi
+
+# Android sdk
+ANDROID_SDK_PATH=$HOME/Android/Sdk
+if [ -d "$ANDROID_SDK_PATH" ]; then
+    export PATH=$ANDROID_SDK_PATH/platform-tools:$PATH
+fi
+
+# erg
+ERG_PATH=$HOME/.erg
+if [ -d "$ERG_PATH" ]; then
+    export PATH=$ERG_PATH/bin:$PATH
+fi
+
+export LOCAL_PATH="$HOME/.local"
+if [ -d "$LOCAL_PATH" ]; then
+    export PATH=$LOCAL_PATH/bin:$PATH
+fi

@@ -59,12 +59,13 @@ qt5-wayland                                            # wayland support in qt5
 qt6-wayland                                            # wayland support in qt6
 
 # --------------------------------------------------- // Applications
-firefox                                                # browser
+microsoft-edge-stable-bin                              # browser
 kitty                                                  # terminal
 dolphin                                                # kde file manager
 ark                                                    # kde file archiver
-vim                                                    # terminal text editor
 code                                                   # ide text editor
+neovim                                                 # terminal text editor
+clash-verge-rev-bin                                    # proxy
 
 # --------------------------------------------------- // Shell
 eza|zsh                                                # file lister for zsh
@@ -77,3 +78,6 @@ pokemon-colorscripts-git|zsh                           # display pokemon sprites
 
 # --------------------------------------------------- // HyDE
 hyde-cli-git                                           # cli tool to manage hyde
+
+
+# --------------------------------------------------- // ....
