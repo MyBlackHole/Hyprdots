@@ -297,6 +297,10 @@ lvim.plugins = {
         config = function()
             require("rest-nvim").setup()
         end,
+    },
+    -- diffview
+    {
+        "sindrets/diffview.nvim",
     }
 }
 
