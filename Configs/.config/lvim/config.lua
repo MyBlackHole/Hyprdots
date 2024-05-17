@@ -92,7 +92,6 @@ lvim.keys.normal_mode["H"] = "<cmd>BufferLineCyclePrev<cr>"
 lvim.keys.normal_mode["L"] = "<cmd>BufferLineCycleNext<cr>"
 lvim.keys.normal_mode["K"] = "<cmd>lua vim.lsp.buf.hover()<CR>"
 -- lvim.keys.normal_mode["gd"] = "<cmd>lua vim.lsp.buf.definition()<CR>"
--- lvim.transparent_window = true
 
 -- Use which-key to add extra bindings with the leader-key prefix
 -- 打开项目
@@ -140,6 +139,10 @@ lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.dap.active = false
+-- 彩虹括号 mrjones2014/nvim-ts-rainbow
+lvim.builtin.treesitter.rainbow.enable = true
+-- 透明窗口
+lvim.transparent_window = true
 -- lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 lvim.builtin.cmp.completion.keyword_length = 2
 -- lvim.builtin.telescope.defaults.layout_config.width = 0.95
@@ -165,7 +168,7 @@ lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
 -- -- 关闭自动安装语言服务器
--- lvim.lsp.automatic_servers_installation = true
+-- lvim.lsp.automatic_servers_installation = false
 
 -- generic LSP settings
 -- :LvimCacheReset (必须执行才生效)
@@ -218,8 +221,8 @@ lvim.plugins = {
         end,
     },
     -- { "norcalli/nvim-colorizer.lua" },
-    -- -- 彩虹括号
-    -- { "mrjones2014/nvim-ts-rainbow" },
+    -- 彩虹括号
+    { "mrjones2014/nvim-ts-rainbow" },
     -- 翻译
     { "voldikss/vim-translator" },
     -- { "lunarvim/colorschemes" },
@@ -232,6 +235,7 @@ lvim.plugins = {
     -- { "hrsh7th/vim-vsnip-integ" },
     -- { "hrsh7th/cmp-cmdline" },
     -- { "ryanoasis/vim-devicons" },
+    -- 跳跃定位
     {
         "folke/flash.nvim",
         event = "VeryLazy",
@@ -270,6 +274,14 @@ lvim.plugins = {
             },
         },
     },
+    -- -- 跳跃定位
+    -- {
+    --     "ggandor/leap.nvim",
+    --     name = "leap",
+    --     config = function()
+    --         require("leap").add_default_mappings()
+    --     end,
+    -- },
     {
         "Mythos-404/xmake.nvim",
         lazy = true,
@@ -298,7 +310,7 @@ lvim.plugins = {
             require("rest-nvim").setup()
         end,
     },
-    -- diffview
+    -- git diffview
     {
         "sindrets/diffview.nvim",
     }
