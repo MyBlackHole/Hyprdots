@@ -115,7 +115,7 @@ lvim.builtin.which_key.mappings["t"] = {
     name = "+Trouble",
     r = { "<cmd>Trouble lsp_references<cr>", "References" },
     f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
-    d = { "<cmd>Trouble lsp_document_diagnostics<cr>", "Diagnostics" },
+    d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
     q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
     l = { "<cmd>Trouble loclist<cr>", "LocationList" },
     w = { "<cmd>Trouble workspace_diagnostics<cr>", "Diagnostics" },
@@ -182,22 +182,22 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- end, lvim.lsp.automatic_configuration.skipped_servers)
 
 -- set a formatter, this will override the language server formatting capabilities (if it exists)
--- 格式化
-local formatters = require "lvim.lsp.null-ls.formatters"
-formatters.setup {
-    { command = "black",        filetypes = { "python" } },
-    { command = "isort",        filetypes = { "python" } },
-    { command = "markdownlint", filetypes = { "Markdown" } },
-}
+-- -- 格式化
+-- local formatters = require "lvim.lsp.null-ls.formatters"
+-- formatters.setup {
+--     { command = "black",        filetypes = { "python" } },
+--     { command = "isort",        filetypes = { "python" } },
+--     { command = "markdownlint", filetypes = { "Markdown" } },
+-- }
 
 -- set additional linters
--- 语法校验
-local linters = require "lvim.lsp.null-ls.linters"
-linters.setup {
-    { command = "flake8",        filetypes = { "python" } },
-    { command = "golangci-lint", filetypes = { "go" } },
-    { command = "markdownlint",  filetypes = { "Markdown" } },
-}
+-- -- 语法校验
+-- local linters = require "lvim.lsp.null-ls.linters"
+-- linters.setup {
+--     { command = "flake8",        filetypes = { "python" } },
+--     { command = "golangci-lint", filetypes = { "go" } },
+--     { command = "markdownlint",  filetypes = { "Markdown" } },
+-- }
 
 -- --- check the lspconfig documentation for a list of all possible options
 -- --- 启用其他语言服务器
