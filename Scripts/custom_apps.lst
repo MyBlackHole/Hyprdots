@@ -25,7 +25,7 @@ spicetify-cli                                          # cli to customize spotif
 fcitx5
 fcitx5-qt
 fcitx5-gtk
-fcitx5-chinese-addons
+fcitx5-rime
 pyenv
 atuin
 tmux

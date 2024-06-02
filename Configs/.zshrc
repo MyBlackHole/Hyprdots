@@ -88,13 +88,12 @@ alias mkdir='mkdir -p'
 #Display Pokemon
 pokemon-colorscripts --no-title -r 1,3,6
 
-export ALL_PROXY="socks5://127.0.0.1:1080"
+export ALL_PROXY="http://127.0.0.1:1081"
 export HTTP_PROXY=$ALL_PROXY
 export HTTPS_PROXY=$ALL_PROXY
-export ALL_PROXY=$ALL_PROXY
-export http_proxy=$ALL_PROXY
-export https_proxy=$ALL_PROXY
-export all_proxy=$ALL_PROXY
+# export all_proxy=$ALL_PROXY
+# export http_proxy=$ALL_PROXY
+# export https_proxy=$ALL_PROXY
 
 # fcitx
 export GTK_IM_MODULE=fcitx
