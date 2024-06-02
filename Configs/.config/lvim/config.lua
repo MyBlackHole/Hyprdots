@@ -195,52 +195,55 @@ lvim.plugins = {
     -- 诊断 key map
     {
         "folke/trouble.nvim",
+        opts = {}, -- for default options, refer to the configuration section for custom setup.
         cmd = "Trouble",
-        -- init = function()
-        --     -- 打开诊断面板
-        --     -- 打开函数树
-        --     lvim.builtin.which_key.mappings["t"] = {
-        --         name = "+Trouble",
-        --         x = { "<cmd>Trouble diagnostics toggle<cr>", "Diagnostics (Trouble)" },
-        --         X = { "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", "Buffer Diagnostics (Trouble)" },
-        --         s = { "<cmd>Trouble symbols toggle focus=false<cr>", "Symbols (Trouble)" },
-        --         l = { "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", "LSP Definitions / references / ... (Trouble)" },
-        --         L = { "<cmd>Trouble loclist toggle<cr>", "Location List (Trouble)" },
-        --         Q = { "<cmd>Trouble qflist toggle<cr>", "Quickfix List (Trouble)" },
-        --     }
-        -- end,
-        keys = {
-        {
-          "<leader>xx",
-          "<cmd>Trouble diagnostics toggle<cr>",
-          desc = "Diagnostics (Trouble)",
-        },
-        {
-          "<leader>xX",
-          "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-          desc = "Buffer Diagnostics (Trouble)",
-        },
-        {
-          "<leader>cs",
-          "<cmd>Trouble symbols toggle focus=false<cr>",
-          desc = "Symbols (Trouble)",
-        },
-        {
-          "<leader>cl",
-          "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-          desc = "LSP Definitions / references / ... (Trouble)",
-        },
-        {
-          "<leader>xL",
-          "<cmd>Trouble loclist toggle<cr>",
-          desc = "Location List (Trouble)",
-        },
-        {
-          "<leader>xQ",
-          "<cmd>Trouble qflist toggle<cr>",
-          desc = "Quickfix List (Trouble)",
-        },
-        },
+        init = function()
+            lvim.builtin.which_key.mappings["t"] = {
+                name = "+Trouble",
+                -- 打开诊断面板
+                x = { "<cmd>Trouble diagnostics toggle<cr>", "Diagnostics (Trouble)" },
+                X = { "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", "Buffer Diagnostics (Trouble)" },
+
+                -- 打开函数树
+                s = { "<cmd>Trouble symbols toggle focus=false<cr>", "Symbols (Trouble)" },
+                l = { "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", "LSP Definitions / references / ... (Trouble)" },
+
+                L = { "<cmd>Trouble loclist toggle<cr>", "Location List (Trouble)" },
+                Q = { "<cmd>Trouble qflist toggle<cr>", "Quickfix List (Trouble)" },
+            }
+        end,
+        -- keys = {
+        --     {
+        --         "<leader>xx",
+        --         "<cmd>Trouble diagnostics toggle<cr>",
+        --         desc = "Diagnostics (Trouble)",
+        --     },
+        --     {
+        --         "<leader>xX",
+        --         "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+        --         desc = "Buffer Diagnostics (Trouble)",
+        --     },
+        --     {
+        --         "<leader>cs",
+        --         "<cmd>Trouble symbols toggle focus=false<cr>",
+        --         desc = "Symbols (Trouble)",
+        --     },
+        --     {
+        --         "<leader>cl",
+        --         "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+        --         desc = "LSP Definitions / references / ... (Trouble)",
+        --     },
+        --     {
+        --         "<leader>xL",
+        --         "<cmd>Trouble loclist toggle<cr>",
+        --         desc = "Location List (Trouble)",
+        --     },
+        --     {
+        --         "<leader>xQ",
+        --         "<cmd>Trouble qflist toggle<cr>",
+        --         desc = "Quickfix List (Trouble)",
+        --     },
+        -- },
     },
     -- 跳跃定位
     {
