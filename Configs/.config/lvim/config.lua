@@ -1,13 +1,3 @@
---[[
-lvim is the global options object
-
-Linters should be
-filled in as strings with either
-a global executable or a path to
-an executable
-]]
--- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
-
 -- general
 lvim.log.level = "info"
 lvim.format_on_save = {
@@ -97,40 +87,6 @@ lvim.keys.normal_mode["K"] = "<cmd>lua vim.lsp.buf.hover()<CR>"
 -- 打开项目
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 
--- 打开函数树
-lvim.builtin.which_key.mappings["S"] = {
-    name = "symbols-outline",
-    o = { "<cmd>SymbolsOutlineOpen<CR>", "SymbolsOutlineOpen" },
-    c = { "<cmd>SymbolsOutlineClose<CR>", "SymbolsOutlineClose" },
-}
-
--- flutter-tools
-lvim.builtin.which_key.mappings["f"] = {
-    name = "Flutter",
-    r = { "<cmd>FlutterRun<CR>", "FlutterRun" },
-}
-
--- 诊断 key map
-lvim.builtin.which_key.mappings["t"] = {
-    name = "+Trouble",
-    r = { "<cmd>Trouble lsp_references<cr>", "References" },
-    f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
-    d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
-    q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
-    l = { "<cmd>Trouble loclist<cr>", "LocationList" },
-    w = { "<cmd>Trouble workspace_diagnostics<cr>", "Diagnostics" },
-}
-
--- 翻译
-lvim.builtin.which_key.vmappings["t"] = {
-    name = "+Translate",
-    t = { "<cmd>Translate<cr>", "Translate" },
-    r = { "<cmd>TranslateR<cr>", "TranslateR" },
-    l = { "<cmd>TranslateL<cr>", "TranslateL" },
-    h = { "<cmd>TranslateH<cr>", "TranslateH" },
-    w = { "<cmd>TranslateW<cr>", "TranslateW" },
-    x = { "<cmd>TranslateX<cr>", "TranslateX" },
-}
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
@@ -206,35 +162,86 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 -- Additional Plugins
 lvim.plugins = {
-    -- 代码函数树
-    {
-        "simrat39/symbols-outline.nvim",
-        config = function()
-            require('symbols-outline').setup()
-        end
-    },
     -- flutter-tools
     {
         'akinsho/flutter-tools.nvim',
-        config = function()
+        init = function()
             require("flutter-tools").setup()
+            lvim.builtin.which_key.mappings["f"] = {
+                name = "Flutter",
+                r = { "<cmd>FlutterRun<CR>", "FlutterRun" },
+            }
         end,
     },
     -- { "norcalli/nvim-colorizer.lua" },
     -- 彩虹括号
     { "mrjones2014/nvim-ts-rainbow" },
     -- 翻译
-    { "voldikss/vim-translator" },
-    -- { "lunarvim/colorschemes" },
-    -- 诊断
+    {
+        "voldikss/vim-translator",
+        init = function()
+            lvim.builtin.which_key.vmappings["t"] = {
+                name = "+Translate",
+                t = { "<cmd>Translate<cr>", "Translate" },
+                r = { "<cmd>TranslateR<cr>", "TranslateR" },
+                l = { "<cmd>TranslateL<cr>", "TranslateL" },
+                h = { "<cmd>TranslateH<cr>", "TranslateH" },
+                w = { "<cmd>TranslateW<cr>", "TranslateW" },
+                x = { "<cmd>TranslateX<cr>", "TranslateX" },
+            }
+        end,
+        -- }
+    },
+    -- 诊断 key map
     {
         "folke/trouble.nvim",
-        cmd = "TroubleToggle"
+        cmd = "Trouble",
+        -- init = function()
+        --     -- 打开诊断面板
+        --     -- 打开函数树
+        --     lvim.builtin.which_key.mappings["t"] = {
+        --         name = "+Trouble",
+        --         x = { "<cmd>Trouble diagnostics toggle<cr>", "Diagnostics (Trouble)" },
+        --         X = { "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", "Buffer Diagnostics (Trouble)" },
+        --         s = { "<cmd>Trouble symbols toggle focus=false<cr>", "Symbols (Trouble)" },
+        --         l = { "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", "LSP Definitions / references / ... (Trouble)" },
+        --         L = { "<cmd>Trouble loclist toggle<cr>", "Location List (Trouble)" },
+        --         Q = { "<cmd>Trouble qflist toggle<cr>", "Quickfix List (Trouble)" },
+        --     }
+        -- end,
+        keys = {
+        {
+          "<leader>xx",
+          "<cmd>Trouble diagnostics toggle<cr>",
+          desc = "Diagnostics (Trouble)",
+        },
+        {
+          "<leader>xX",
+          "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+          desc = "Buffer Diagnostics (Trouble)",
+        },
+        {
+          "<leader>cs",
+          "<cmd>Trouble symbols toggle focus=false<cr>",
+          desc = "Symbols (Trouble)",
+        },
+        {
+          "<leader>cl",
+          "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+          desc = "LSP Definitions / references / ... (Trouble)",
+        },
+        {
+          "<leader>xL",
+          "<cmd>Trouble loclist toggle<cr>",
+          desc = "Location List (Trouble)",
+        },
+        {
+          "<leader>xQ",
+          "<cmd>Trouble qflist toggle<cr>",
+          desc = "Quickfix List (Trouble)",
+        },
+        },
     },
-    -- { "hrsh7th/vim-vsnip" },
-    -- { "hrsh7th/vim-vsnip-integ" },
-    -- { "hrsh7th/cmp-cmdline" },
-    -- { "ryanoasis/vim-devicons" },
     -- 跳跃定位
     {
         "folke/flash.nvim",
@@ -333,15 +340,3 @@ vim.api.nvim_create_autocmd(
         command = "%s/[\\u0d]//ge",
     }
 )
-
--- -- 2024-02-20
--- -- 取消自定义栏
--- vim.cmd('source ~/.config/lvim/lua/user/lualine.lua')
-
--- require'lspconfig'.clangd.setup{
---     cmd = {"clangd"}
---     -- cmd = {"clangd", "--query-drive="}
--- }
-
-
--- require'lspconfig'.clangd.arguments = []
