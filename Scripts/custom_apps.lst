@@ -22,10 +22,3 @@ spicetify-cli                                          # cli to customize spotif
 # --------------------------------------------------- // Apps
 # neovim                                               # vim based text editor
 
-fcitx5
-fcitx5-qt
-fcitx5-gtk
-fcitx5-rime
-pyenv
-atuin
-tmux

@@ -5,9 +5,9 @@ N|Y|${HOME}/.config|code-flags.conf|visual-studio-code-bin
 N|Y|${HOME}/.config|code-flags.conf|code
 N|Y|${HOME}/.config|spotify-flags.conf|spotify
 Y|Y|${HOME}|.gitignore .gitconfig|git
-Y|Y|${HOME}|.gdbinit|gdb
-Y|Y|${HOME}|.tmux.conf|tmux
-Y|Y|${HOME}/.config|lvim clangd|nvim
+N|Y|${HOME}|.gdbinit|gdb
+N|Y|${HOME}|.tmux.conf|tmux
+N|Y|${HOME}/.config|lvim clangd|nvim
 Y|Y|${HOME}/.config|dunst|dunst
 Y|Y|${HOME}/.config|fish|fish
 Y|Y|${HOME}/.config/hyde|wallbash hyde.conf|hyprland

@@ -5,7 +5,7 @@ ZSH=/usr/share/oh-my-zsh/
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # List of plugins used
-plugins=(sudo zsh-256color zsh-autosuggestions zsh-syntax-highlighting git vi-mode tmux rust golang podman)
+plugins=(sudo zsh-autosuggestions zsh-syntax-highlighting git vi-mode tmux rust golang podman)
 source $ZSH/oh-my-zsh.sh
 
 # In case a command is not found, try to find the package that has it
