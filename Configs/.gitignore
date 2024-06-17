@@ -27,3 +27,21 @@ aio.scheduler.debug
 aio.airflow.web.debug
 frontend-dist-*
 airflow.black.sh
+run.sh
+
+fsbackup.ko
+aio-speed
+aio-speedd
+librpc.so
+test-rpc
+
+# c
+*.o
+*.o.cmd
+*.mod.cmd
+*.mod
+*.ko.cmd
+*.mod.c
+*.o.d
+*.symvers
+*.order
