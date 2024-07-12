@@ -149,3 +149,8 @@ export LOCAL_PATH="$HOME/.local"
 if [ -d "$LOCAL_PATH" ]; then
     export PATH=$LOCAL_PATH/bin:$PATH
 fi
+
+export VCPKG_ROOT=$HOME/.local/share/vcpkg
+if [ -d "$VCPKG_ROOT" ]; then
+    export PATH=$VCPKG_ROOT:$PATH
+fi
