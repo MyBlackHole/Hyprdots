@@ -31,3 +31,6 @@ compile_commands.json
 # gdb
 .gdbinit
 
+# devbox
+devbox.json
+devbox.lock
