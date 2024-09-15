@@ -2,7 +2,7 @@
 	email = 1358244533@qq.com
 	name = black
 [core]
-	editor = lvim
+	editor = nvim
 	quotepath = false
 	excludesfile = /home/black/.gitignore
 	safecrlf = true
@@ -14,5 +14,5 @@
 	ui = auto
 [init]
 	defaultBranch = main
-[safe]
-	directory = /media/black/Data/Documents/github/C/bcc
+[http]
+    postBuffer = 104857600
