@@ -34,3 +34,8 @@ compile_commands.json
 # devbox
 devbox.json
 devbox.lock
+
+# vscode
+.vscode
+
+
