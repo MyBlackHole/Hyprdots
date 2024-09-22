@@ -110,9 +110,6 @@ export SDL_IM_MODULE=fcitx
 # export HTTPS_PROXY="http://127.0.0.1:8866"
 # export ALL_PROXY="socks5://127.0.0.1:8866"
 
-export MYHOME="/run/media/black/Data"
-export TOOLSHOME=$MYHOME/tools
-
 # yarn
 YARN_PATH=$HOME/.yarn
 YARN_CONFIG_PATH=$HOME/.config/yarn/global/node_modules
