@@ -143,9 +143,16 @@ if [ -d "$GO_PATH" ]; then
 fi
 
 # Android sdk
-ANDROID_SDK_PATH=$HOME/Android/Sdk
+ANDROID_SDK_PATH=/opt/android-sdk
 if [ -d "$ANDROID_SDK_PATH" ]; then
-    export PATH=$ANDROID_SDK_PATH/platform-tools:$PATH
+    export PATH=$ANDROID_SDK_PATH/platform-tools:$ANDROID_SDK_PATH/tools/bin:$PATH
+fi
+
+# Android ndk
+ANDROID_NDK_PATH=/opt/android-ndk
+if [ -d "$ANDROID_NDK_PATH" ]; then
+    export NDK_HOME=/opt/android-ndk
+    export PATH=$ANDROID_NDK_PATH:$PATH
 fi
 
 # erg
