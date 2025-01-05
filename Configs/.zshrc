@@ -170,3 +170,9 @@ export VCPKG_ROOT=$HOME/.local/share/vcpkg
 if [ -d "$VCPKG_ROOT" ]; then
     export PATH=$VCPKG_ROOT:$PATH
 fi
+
+# rust
+RUST_HOME=$HOME/.cargo
+if [ -d "$RUST_HOME" ]; then
+    export PATH=$RUST_HOME/bin:$PATH
+fi
