@@ -110,11 +110,17 @@ export SDL_IM_MODULE=fcitx
 # export HTTPS_PROXY="http://127.0.0.1:8866"
 # export ALL_PROXY="socks5://127.0.0.1:8866"
 
-# yarn
-YARN_PATH=$HOME/.yarn
-YARN_CONFIG_PATH=$HOME/.config/yarn/global/node_modules
-if [ -d "$YARN_PATH" ]; then
-    export PATH=$YARN_PATH/bin::$YARN_CONFIG_PATH/.bin:$PATH
+# # yarn
+# YARN_PATH=$HOME/.yarn
+# YARN_CONFIG_PATH=$HOME/.config/yarn/global/node_modules
+# if [ -d "$YARN_PATH" ]; then
+#     export PATH=$YARN_PATH/bin::$YARN_CONFIG_PATH/.bin:$PATH
+# fi
+
+# deno
+DENO_INSTALL=$HOME/.deno
+if [ -d "$DENO_INSTALL" ]; then
+    export PATH=$DENO_INSTALL/bin:$PATH
 fi
 
 # atuin
