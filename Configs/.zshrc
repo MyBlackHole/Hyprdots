@@ -123,11 +123,11 @@ if [ -d "$DENO_INSTALL" ]; then
     export PATH=$DENO_INSTALL/bin:$PATH
 fi
 
-# esp-idf
-ESP_IDF_PATH=/opt/esp-idf
-if [ -d "$ESP_IDF_PATH" ]; then
-    source $ESP_IDF_PATH/export.sh
-fi
+# # esp-idf
+# ESP_IDF_PATH=/opt/esp-idf
+# if [ -d "$ESP_IDF_PATH" ]; then
+#     source $ESP_IDF_PATH/export.sh
+# fi
 
 # atuin
 eval "$(atuin init zsh)"
